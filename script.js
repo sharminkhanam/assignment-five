@@ -1,8 +1,9 @@
 let issues =[];
 let currentTab = "all";
+
 //fetch api
 
-async function loadIssues(params) {
+async function loadIssues() {
     const res = await fetch ("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     const result = await res.json()
     issues =result.data
@@ -10,9 +11,6 @@ async function loadIssues(params) {
     
 }
 loadIssues()
-
-// search ami disie
-
 
 // formate date
 function formateDate (date){
