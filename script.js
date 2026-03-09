@@ -91,7 +91,7 @@ function formateDate (date){
                     <span class="text-xs bg-orange-100 text-orange-500 border px-2 py-1 rounded-2xl">${l}</span>`).join(" ")
         document.getElementById("modalLabels").innerHTML = labelsHTML
       }
-      function  closeModal(params) {
+      function  closeModal() {
             document.getElementById("issueModal").classList.add("hidden")
       }
      

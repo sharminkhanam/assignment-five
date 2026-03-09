@@ -42,18 +42,7 @@
         </div>
         <p id="error" class="text-red-500 text-center mt-4 hidden">Invalid login credentials</p>
     </div>
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function (e){
-            e.preventDefault();
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            if(username === "admin" && password === "admin123") {
-                window.location.href = "main.html";
-            }else{
-                document.getElementById("error").classList.remove("hidden");
-            }
-        });
-    </script>
+   <script src="login.js"></script>
 </body>
 </html>
 
