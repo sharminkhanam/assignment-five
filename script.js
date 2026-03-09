@@ -21,9 +21,17 @@ function formateDate (date){
 
 
       function renderIssues () {
+        // loading 
+        const loader = document.getElementById("loader"); //optationl
+      
+        ///
         const grid = document.getElementById("issuesGrid")
-        const search = document.getElementById("searchInput").value.toLowerCase()
-        grid.innerHTML = "";
+        const search = document.getElementById("searchInput").value.toLowerCase();
+        //
+          loader.classList.remove("hidden"); //optationl
+          //
+          setTimeout(() => {  //op
+                grid.innerHTML = "";
         let visibleCount = 0;
         issues.forEach(issue => {
             const matchTab = currentTab === "all" || issue.status === currentTab
@@ -48,11 +56,18 @@ function formateDate (date){
                          <h3 class="font-semibold mt-2">${issue.title}</h3>
                      <p class="text-sm text-gray-500 mt-2">${issue.description.substring(0,80)}</p>
                      <div class="flex flex-wrap gap-2 mt-3 ">${labels}</div>
-                     <p class="text-sm text-gray-400 mt-3">#${issue.id} by ${issue.autor} . ${formateDate(issue.createdAt)}</p>
+                     <p class="text-sm text-gray-400 mt-3">#${issue.id} by ${issue.author} <br>• ${formateDate(issue.createdAt)}</p>
                         </div>`
             };
-        })
-        document.getElementById("issueCount").innerText = visibleCount+ " Issues "
+        });
+
+          document.getElementById("issueCount").innerText = visibleCount+ " Issues ";
+        //
+        loader.classList.add("hidden");
+         }, 800) //
+        
+      
+        //
       }
 
           const tabs = document.querySelectorAll(".tab")
