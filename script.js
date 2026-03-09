@@ -18,20 +18,10 @@ function formateDate (date){
     return d.toLocaleDateString()
 }
 
-
-
       function renderIssues () {
-        // loading 
-        const loader = document.getElementById("loader"); //optationl
-      
-        ///
         const grid = document.getElementById("issuesGrid")
         const search = document.getElementById("searchInput").value.toLowerCase();
-        //
-          loader.classList.remove("hidden"); //optationl
-          //
-          setTimeout(() => {  //op
-                grid.innerHTML = "";
+             grid.innerHTML = "";
         let visibleCount = 0;
         issues.forEach(issue => {
             const matchTab = currentTab === "all" || issue.status === currentTab
@@ -60,17 +50,11 @@ function formateDate (date){
                         </div>`
             };
         });
+         document.getElementById("issueCount").innerText = visibleCount+ " Issues ";
 
-          document.getElementById("issueCount").innerText = visibleCount+ " Issues ";
-        //
-        loader.classList.add("hidden");
-         }, 800) //
-        
-      
-        //
       }
 
-          const tabs = document.querySelectorAll(".tab")
+    const tabs = document.querySelectorAll(".tab")
     tabs.forEach(tab => {
         tab.addEventListener('click', () =>{
             tabs.forEach(t => {
@@ -85,13 +69,6 @@ function formateDate (date){
     })
     document.getElementById("searchInput").addEventListener("keyup", renderIssues)
 
-
-
-     /* -------------------
-      TAB FILTER
-      ------------------- */
-
- 
       async function openIssue(id) {
         const modal = document.getElementById("issueModal")
         modal.classList.remove("hidden")
@@ -118,3 +95,6 @@ function formateDate (date){
             document.getElementById("issueModal").classList.add("hidden")
       }
      
+
+
+  
